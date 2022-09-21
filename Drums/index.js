@@ -64,17 +64,16 @@ function DoAnimation(currentKey) {
 
   var buttons = document.querySelectorAll("button");
 
-  for (button in buttons) {
-    button = button.innerText;
+  let letters = [];
+  for (var i=0; i < buttons.length; i++) {
+      letters.push(buttons[i].innerText);
   }
 
-  if (currentKey in buttons) {
+  if (letters.includes(currentKey)) {
     var activeButton = document.querySelector("." + currentKey);
-
-    activeButton.classList.add("pressed");
-  
+    activeButton.classList.toggle("pressed");
     setTimeout(function() {
-      activeButton.classList.remove("pressed");
+      activeButton.classList.toggle("pressed");
     }, 100);
   }
 
